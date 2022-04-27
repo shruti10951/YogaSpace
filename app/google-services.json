@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "975078564155",
+    "project_id": "yoga-space-15f1d",
+    "storage_bucket": "yoga-space-15f1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975078564155:android:f26d53a8993d06d33a571e",
+        "android_client_info": {
+          "package_name": "com.vidyalankar.yogaspace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975078564155-fd9t7c31rd5uvbkip725efun322j41m2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlbxSjp7RlcDdQc-16LAB7x-a0UyFFH8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975078564155-fd9t7c31rd5uvbkip725efun322j41m2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
