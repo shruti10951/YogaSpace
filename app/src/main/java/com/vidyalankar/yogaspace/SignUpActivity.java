@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignUpActivity extends AppCompatActivity {
 
     TextView login_txt;
-    Button sign_up_btn;
+    Button sign_up_btn,ok;
     EditText email_et, password_et, confirm_pass_et;
 
     @Override
@@ -29,10 +29,19 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         login_txt= findViewById(R.id.login_txt);
+        ok= findViewById(R.id.ok);
         sign_up_btn= findViewById(R.id.sign_up_btn);
         email_et = findViewById(R.id.sign_up_email);
         password_et = findViewById(R.id.sign_up_password);
         confirm_pass_et = findViewById(R.id.sign_up_confirm_password);
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SignUpActivity.this,YogaTypesActivity.class);
+                startActivity(intent);
+            }
+        });
 
         login_txt.setOnClickListener(new View.OnClickListener() {
             @Override
