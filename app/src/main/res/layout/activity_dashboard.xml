@@ -49,6 +49,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/yoga_card"
             android:layout_width="0dp"
+            android:backgroundTint="@color/white"
             android:layout_height="40dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
@@ -80,7 +81,7 @@
                     android:fontFamily="serif"
                     android:gravity="center"
                     android:text="Yoga"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -89,6 +90,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:backgroundTint="@color/white"
             android:id="@+id/breathe_card"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -123,7 +125,7 @@
                     android:fontFamily="serif"
                     android:gravity="center"
                     android:text="Breathe"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -133,6 +135,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:backgroundTint="@color/white"
             android:id="@+id/isochronic_card"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -166,7 +169,7 @@
                     android:fontFamily="serif"
                     android:gravity="center"
                     android:text="Isochronic Beats"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -175,6 +178,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:backgroundTint="@color/white"
             android:id="@+id/binaural_card"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -209,7 +213,7 @@
                     android:fontFamily="serif"
                     android:gravity="center"
                     android:text="Binaural Beats"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
             </LinearLayout>

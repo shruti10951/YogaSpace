@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/black"
+    android:orientation="vertical"
     tools:context=".YogaTypesActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -27,21 +26,21 @@
                     android:id="@+id/yoga1"
                     android:layout_width="150dp"
                     android:layout_height="170dp"
-                    android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
-                    android:layout_marginTop="40dp"
                     android:layout_marginStart="20dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/card_bg"
+                    android:clickable="true"
+                    android:src="@drawable/yoga3" />
 
                 <ImageView
                     android:id="@+id/yoga2"
                     android:layout_width="150dp"
                     android:layout_height="170dp"
-                    android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="40dp"
-                    android:clickable="true"/>
+                    android:background="@drawable/card_bg"
+                    android:clickable="true"
+                    android:src="@drawable/yoga3" />
             </LinearLayout>
 
             <LinearLayout
@@ -54,21 +53,21 @@
                     android:id="@+id/yoga3"
                     android:layout_width="150dp"
                     android:layout_height="170dp"
-                    android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
-                    android:layout_marginTop="40dp"
                     android:layout_marginStart="20dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/card_bg"
+                    android:clickable="true"
+                    android:src="@drawable/yoga3" />
 
                 <ImageView
                     android:id="@+id/yoga4"
                     android:layout_width="150dp"
                     android:layout_height="170dp"
-                    android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="40dp"
-                    android:clickable="true"/>
+                    android:background="@drawable/card_bg"
+                    android:clickable="true"
+                    android:src="@drawable/yoga3" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,18 +83,18 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:src="@drawable/yoga3" />
 
                 <ImageView
                     android:id="@+id/yoga6"
                     android:layout_width="150dp"
                     android:layout_height="170dp"
-                    android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="40dp"
-                    android:clickable="true"/>
+                    android:background="@drawable/card_bg"
+                    android:clickable="true"
+                    android:src="@drawable/yoga3" />
             </LinearLayout>
 
             <LinearLayout
@@ -112,8 +111,8 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:src="@drawable/yoga3" />
 
                 <ImageView
                     android:id="@+id/yoga8"
@@ -122,9 +121,8 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
-                    android:src="@drawable/yoga3"
                     android:clickable="true"
-                    />
+                    android:src="@drawable/yoga3" />
 
             </LinearLayout>
 
