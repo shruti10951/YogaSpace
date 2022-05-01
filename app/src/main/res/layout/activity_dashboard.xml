@@ -13,29 +13,19 @@
         android:paddingTop="20dp"
         android:src="@drawable/horizontal_logo"
         android:orientation="horizontal"
-        android:scaleType="fitStart">
+        android:scaleType="fitStart"/>
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/user_photo"-->
-        <!--            android:layout_width="100dp"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_marginStart="26dp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:src="@drawable/logo" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/user_name"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_marginStart="50dp"-->
-        <!--            android:gravity="center"-->
-        <!--            android:fontFamily="serif"-->
-        <!--            android:textStyle="bold|italic"-->
-        <!--            android:text="Welcome \n To \nYoga Space"-->
-        <!--            android:textColor="@color/black"-->
-        <!--            android:textSize="30sp" />-->
-
-    </ImageView>
+    <TextView
+        android:id="@+id/log_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:fontFamily="serif"
+        android:gravity="right"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
 
     <GridLayout
         android:layout_width="match_parent"

@@ -30,7 +30,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/adho_mukha_svanasana_1" />
 
                 <ImageView
                     android:id="@+id/yoga2"
@@ -40,7 +40,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/balasana" />
             </LinearLayout>
 
             <LinearLayout
@@ -57,7 +57,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/gomukhasana_1" />
 
                 <ImageView
                     android:id="@+id/yoga4"
@@ -67,7 +67,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/lotus_pose_1" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,7 +84,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/trikonasana_1" />
 
                 <ImageView
                     android:id="@+id/yoga6"
@@ -94,7 +94,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/uttanasana_1" />
             </LinearLayout>
 
             <LinearLayout
@@ -112,7 +112,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/vasisthasana_1" />
 
                 <ImageView
                     android:id="@+id/yoga8"
@@ -122,7 +122,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/card_bg"
                     android:clickable="true"
-                    android:src="@drawable/yoga3" />
+                    android:src="@drawable/virabhadrasana_1" />
 
             </LinearLayout>
 

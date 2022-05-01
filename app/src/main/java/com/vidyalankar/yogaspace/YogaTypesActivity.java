@@ -40,35 +40,35 @@ public class YogaTypesActivity extends AppCompatActivity implements View.OnClick
         String type= "";
         switch (view.getId()){
             case R.id.yoga1:
-                type= "Balasana";
+                type= "Adho Mukha Svanasana";
                 changeScreen(type);
                 break;
             case R.id.yoga2:
-                type= "Trikonasana";
+                type= "Balasana";
                 changeScreen(type);
                 break;
             case R.id.yoga3:
-                type= "Uttanasana";
+                type= "Gomukhasana";
                 changeScreen(type);
                 break;
             case R.id.yoga4:
-                type= "yoga4";
+                type= "Lotus pose";
                 changeScreen(type);
                 break;
             case R.id.yoga5:
-                type= "yoga5";
+                type= "Trikonasana";
                 changeScreen(type);
                 break;
             case R.id.yoga6:
-                type= "yoga6";
+                type= "Uttanasana";
                 changeScreen(type);
                 break;
             case R.id.yoga7:
-                type= "yoga7";
+                type= "Vasisthasana";
                 changeScreen(type);
                 break;
             case R.id.yoga8:
-                type= "yoga8";
+                type= "Virabhadrasana";
                 changeScreen(type);
                 break;
         }
