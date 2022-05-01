@@ -88,10 +88,10 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this, "User Registered Successfully!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(SignUpActivity.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, "Something went wrong! " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
