@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //do this when android cannot resolve any library
+        jcenter()
     }
 }
 rootProject.name = "Yoga Space"

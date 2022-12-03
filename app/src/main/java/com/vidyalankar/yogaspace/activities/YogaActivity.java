@@ -1,4 +1,4 @@
-package com.vidyalankar.yogaspace;
+package com.vidyalankar.yogaspace.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,18 +8,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.vidyalankar.yogaspace.R;
+import com.vidyalankar.yogaspace.model.YogaInstruction;
 
 public class YogaActivity extends AppCompatActivity {
 
     TextView yoga_name, instruction1, instruction2, instruction3, instruction4, instruction5, instruction6;
     ImageView yogaImage;
+
+    ShimmerFrameLayout shimmerFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +38,11 @@ public class YogaActivity extends AppCompatActivity {
         instruction6 = findViewById(R.id.instruction6);
         yogaImage = findViewById(R.id.yoga_img);
 
-        Intent intent= getIntent();
-        String y= intent.getStringExtra("yoga");
-        yoga_name.setText(y);
+        shimmerFrameLayout = findViewById(R.id.shimmer);
+        shimmerFrameLayout.startShimmer();
+
+        Intent intent = getIntent();
+        String y = intent.getStringExtra("yoga");
 
         FirebaseDatabase.getInstance().getReference()
                 .child("Yoga Space")
@@ -45,15 +51,19 @@ public class YogaActivity extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        YogaInstruction yogaInstruction= snapshot.getValue(YogaInstruction.class);
-                        String yogaName= yogaInstruction.getName();
-                        String instruct1= yogaInstruction.getInstruction1();
-                        String instruct2= yogaInstruction.getInstruction2();
-                        String instruct3= yogaInstruction.getInstruction3();
-                        String instruct4= yogaInstruction.getInstruction4();
-                        String instruct5= yogaInstruction.getInstruction5();
-                        String instruct6= yogaInstruction.getInstruction6();
-                        String yogaImg= yogaInstruction.getImage();
+                        YogaInstruction yogaInstruction = snapshot.getValue(YogaInstruction.class);
+
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+
+                        String yogaName = yogaInstruction.getName();
+                        String instruct1 = yogaInstruction.getInstruction1();
+                        String instruct2 = yogaInstruction.getInstruction2();
+                        String instruct3 = yogaInstruction.getInstruction3();
+                        String instruct4 = yogaInstruction.getInstruction4();
+                        String instruct5 = yogaInstruction.getInstruction5();
+                        String instruct6 = yogaInstruction.getInstruction6();
+                        String yogaImg = yogaInstruction.getImage();
 
                         yoga_name.setText(yogaName);
                         instruction1.setText(instruct1);
@@ -65,7 +75,7 @@ public class YogaActivity extends AppCompatActivity {
 
                         Glide.with(YogaActivity.this)
                                 .load(yogaImg)
-                                .placeholder(R.drawable.loading_img)
+                                .placeholder(R.color.shimmer)
                                 .centerCrop()
                                 .into(yogaImage);
                     }

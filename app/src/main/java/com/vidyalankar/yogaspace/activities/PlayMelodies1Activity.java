@@ -1,4 +1,4 @@
-package com.vidyalankar.yogaspace;
+package com.vidyalankar.yogaspace.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.vidyalankar.yogaspace.R;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,29 +39,41 @@ public class PlayMelodies1Activity extends AppCompatActivity {
         play1 = findViewById(R.id.play1);
         pause1 = findViewById(R.id.pause1);
         music_image = findViewById(R.id.image_music);
-        seekBar1=findViewById(R.id.seekbar1);
-        playerDuration1=findViewById(R.id.player_duration1);
-        playerPosition1=findViewById(R.id.player_position1);
-        intent= getIntent();
-        song= intent.getStringExtra("songName");
+        seekBar1 = findViewById(R.id.seekbar1);
+        playerDuration1 = findViewById(R.id.player_duration1);
+        playerPosition1 = findViewById(R.id.player_position1);
+        intent = getIntent();
+        song = intent.getStringExtra("songName");
 
         Glide.with(PlayMelodies1Activity.this)
                 .load("https://firebasestorage.googleapis.com/v0/b/yoga-space-15f1d.appspot.com/o/gif%2Fmusic1.gif?alt=media&token=3d3e3103-2db1-4466-8963-9316a9d7c02f")
                 .centerCrop()
                 .into(music_image);
 
-        switch (song){
+        switch (song) {
             case "Calm Mind":
-                mediaPlayer=MediaPlayer.create(this, R.raw.calm_mind);
+                mediaPlayer = MediaPlayer.create(this, R.raw.calm_mind);
                 break;
             case "Morning Motivator":
-                mediaPlayer=MediaPlayer.create(this, R.raw.morning_motivator);
+                mediaPlayer = MediaPlayer.create(this, R.raw.morning_motivator);
                 break;
             case "Alpha Waves":
-                mediaPlayer=MediaPlayer.create(this, R.raw.alpha_waves );
+                mediaPlayer = MediaPlayer.create(this, R.raw.alpha_waves);
                 break;
             case "Beta Swirl":
-                mediaPlayer=MediaPlayer.create(this, R.raw.beta_swirl);
+                mediaPlayer = MediaPlayer.create(this, R.raw.beta_swirl);
+                break;
+            case "Healing Aura":
+                mediaPlayer = MediaPlayer.create(this, R.raw.healing_aura);
+                break;
+            case "Ground Air":
+                mediaPlayer = MediaPlayer.create(this, R.raw.ground_air);
+                break;
+            case "Deep Alpha":
+                mediaPlayer = MediaPlayer.create(this, R.raw.deep_alpha);
+                break;
+            case "Relaxing Waves":
+                mediaPlayer = MediaPlayer.create(this, R.raw.relaxing_waves);
                 break;
         }
 

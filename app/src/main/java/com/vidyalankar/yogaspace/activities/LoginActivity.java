@@ -1,4 +1,4 @@
-package com.vidyalankar.yogaspace;
+package com.vidyalankar.yogaspace.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.vidyalankar.yogaspace.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,15 +29,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sign_up_txt= findViewById(R.id.sign_up_txt);
-        email_et= findViewById(R.id.login_email_et);
-        password_et= findViewById(R.id.login_password_et);
-        login_btn= findViewById(R.id.login_btn);
+        sign_up_txt = findViewById(R.id.sign_up_txt);
+        email_et = findViewById(R.id.login_email_et);
+        password_et = findViewById(R.id.login_password_et);
+        login_btn = findViewById(R.id.login_btn);
 
         sign_up_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
@@ -44,25 +45,25 @@ public class LoginActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email= email_et.getText().toString();
-                String password= password_et.getText().toString();
+                String email = email_et.getText().toString();
+                String password = password_et.getText().toString();
 
-                if(email.isEmpty()){
+                if (email.isEmpty()) {
                     email_et.setError("Email is required!");
                     email_et.requestFocus();
                     return;
                 }
-                if(password.isEmpty()){
+                if (password.isEmpty()) {
                     password_et.setError("Password is required!");
                     password_et.requestFocus();
                     return;
                 }
-                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     email_et.setError("Please provide valid Email!");
                     email_et.requestFocus();
                     return;
                 }
-                if(password.length()<6){
+                if (password.length() < 6) {
                     password_et.setError("Min password length should be 6 characters!");
                     password_et.requestFocus();
                     return;
@@ -71,11 +72,12 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
-                            Intent intent= new Intent(LoginActivity.this, DashboardActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                             startActivity(intent);
-                        }else{
+                            finish();
+                        } else {
                             Toast.makeText(LoginActivity.this, "Failed to Login! Please check your credentials!", Toast.LENGTH_LONG).show();
                         }
                     }
