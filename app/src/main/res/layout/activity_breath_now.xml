@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/breathing_option_background"
-    tools:context=".BreathNowActivity">
+    android:background="@drawable/login_bg"
+    tools:context=".activities.BreathNowActivity">
+
+    <View
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#0DFFFDFD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="serif"
+        android:paddingBottom="10dp"
+        android:text="Yoga"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="270dp"
         android:layout_height="270dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="150dp"
         android:scaleType="center"
         android:visibility="gone"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
-
-    <View
-        android:id="@+id/view1"
-        android:layout_width="270dp"
-        android:layout_height="270dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="204dp"
-        android:layout_marginEnd="20dp"
-        android:background="#94000000" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <ToggleButton
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="100dp"
+        android:layout_marginTop="450dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginTop="500dp"
         android:fontFamily="serif"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
@@ -50,61 +56,57 @@
         android:textColor="@color/black"
         android:textOff="Start"
         android:textOn="Stop"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
         android:id="@+id/relax"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginTop="200dp"
         android:fontFamily="serif"
         android:gravity="center"
         android:text="Rest here"
         android:textColor="@color/white"
-        android:textSize="27sp"
-        android:textStyle="bold|italic" />
+        android:textSize="23sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
         android:id="@+id/relax1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
         android:layout_marginTop="10sp"
         android:fontFamily="serif"
+        android:gravity="center"
         android:text="for a minute..."
         android:textColor="@color/white"
-        android:textSize="27sp"
+        android:textSize="23sp"
         android:textStyle="italic|bold"
-        android:layout_below="@+id/relax"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relax" />
 
     <TextView
         android:id="@+id/relax2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/relax1"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:gravity="center"
         android:layout_marginTop="10sp"
         android:fontFamily="serif"
+        android:gravity="center"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
         android:text="It is ok :)"
         android:textColor="@color/white"
-        android:textSize="27sp"
-        android:textStyle="italic|bold" />
+        android:textSize="23sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relax1" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

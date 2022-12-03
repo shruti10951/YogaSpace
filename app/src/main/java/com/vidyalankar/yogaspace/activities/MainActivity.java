@@ -1,4 +1,4 @@
-package com.vidyalankar.yogaspace;
+package com.vidyalankar.yogaspace.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.os.Handler;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.vidyalankar.yogaspace.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,24 +20,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth= FirebaseAuth.getInstance();
-        if(mAuth != null){
-            firebaseUser= mAuth.getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        if (mAuth != null) {
+            firebaseUser = mAuth.getCurrentUser();
         }
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(firebaseUser == null){
-                    Intent intent1= new Intent(MainActivity.this, LoginActivity.class);
+                if (firebaseUser == null) {
+                    Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent1);
-                }else {
+                } else {
                     Intent intent2 = new Intent(MainActivity.this, DashboardActivity.class);
                     startActivity(intent2);
                 }
                 finish();
             }
-        },5000);
+        }, 5000);
 
     }
 }

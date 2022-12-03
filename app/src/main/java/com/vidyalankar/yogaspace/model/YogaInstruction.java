@@ -1,4 +1,4 @@
-package com.vidyalankar.yogaspace;
+package com.vidyalankar.yogaspace.model;
 
 public class YogaInstruction {
 
