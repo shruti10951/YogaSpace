@@ -2,6 +2,7 @@ package com.vidyalankar.yogaspace.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class YogaActivity extends AppCompatActivity {
     ImageView yogaImage;
 
     ShimmerFrameLayout shimmerFrameLayout;
+    NestedScrollView nestedScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class YogaActivity extends AppCompatActivity {
         yogaImage = findViewById(R.id.yoga_img);
 
         shimmerFrameLayout = findViewById(R.id.shimmer);
+        nestedScrollView= findViewById(R.id.nested_scrollview);
+
         shimmerFrameLayout.startShimmer();
 
         Intent intent = getIntent();
@@ -55,6 +59,7 @@ public class YogaActivity extends AppCompatActivity {
 
                         shimmerFrameLayout.stopShimmer();
                         shimmerFrameLayout.setVisibility(View.GONE);
+                        nestedScrollView.setVisibility(View.VISIBLE);
 
                         String yogaName = yogaInstruction.getName();
                         String instruct1 = yogaInstruction.getInstruction1();

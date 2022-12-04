@@ -1,8 +1,10 @@
 package com.vidyalankar.yogaspace.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -85,6 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
                     password_et.requestFocus();
                     return;
                 }
+
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -95,18 +98,39 @@ public class SignUpActivity extends AppCompatActivity {
                             userModel.username = username;
                             userModel.initial = username.charAt(0) + "";
 
-                            FirebaseDatabase.getInstance().getReference().child("Yoga Space")
-                                    .child("Users")
-                                    .child(userModel.userId).setValue(userModel)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(SignUpActivity.this, "User Registered Successfully!", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    });
+                            FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    FirebaseDatabase.getInstance().getReference().child("Yoga Space")
+                                            .child("Users")
+                                            .child(userModel.userId).setValue(userModel)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+                                                    AlertDialog.Builder builder= new AlertDialog.Builder(SignUpActivity.this);
+                                                    builder.setTitle("Verify Email!");
+                                                    builder.setMessage("Verification email has been sent. Please check");
+                                                    builder.setPositiveButton("Ok!", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialogInterface, int i) {
+//                                                            Toast.makeText(SignUpActivity.this, "User Registered Successfully!", Toast.LENGTH_SHORT).show();
+                                                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        }
+                                                    });
+
+                                                    AlertDialog alertDialog= builder.create();
+                                                    alertDialog.show();
+
+                                                }
+                                            });
+
+                                }
+                            });
+
                         } else {
                             Toast.makeText(SignUpActivity.this, "Something went wrong! " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
