@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/wellness_diagonal" />
+            android:src="@drawable/profile_diagonal" />
 
     </com.github.florent37.diagonallayout.DiagonalLayout>
 

@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
-    <View
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/shimmer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/yoga_img_shimmer"
@@ -23,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/yoga_name_shimmer"
@@ -39,7 +31,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="463dp"
         android:layout_marginTop="20dp"
         android:background="@color/shimmer"
         android:textColor="@color/white"

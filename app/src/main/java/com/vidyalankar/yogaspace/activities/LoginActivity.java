@@ -73,18 +73,25 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
+                            if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                                Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }else {
+                                Toast.makeText(LoginActivity.this, "Failed to login! Please verify your account!", Toast.LENGTH_SHORT).show();
+                            }
+                            }
+                            else {
                             Toast.makeText(LoginActivity.this, "Failed to Login! Please check your credentials!", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
 
-            }
+                }
+
+
         });
 
-    }
+}
 }
