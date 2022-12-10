@@ -4,17 +4,6 @@ public class YogaInstruction {
 
     String image, name, instruction1, instruction2, instruction3, instruction4, instruction5, instruction6;
 
-    public YogaInstruction(String image, String name, String instruction1, String instruction2, String instruction3, String instruction4, String instruction5, String instruction6) {
-        this.image = image;
-        this.name = name;
-        this.instruction1 = instruction1;
-        this.instruction2 = instruction2;
-        this.instruction3 = instruction3;
-        this.instruction4 = instruction4;
-        this.instruction5 = instruction5;
-        this.instruction6 = instruction6;
-    }
-
     public YogaInstruction() {
     }
 

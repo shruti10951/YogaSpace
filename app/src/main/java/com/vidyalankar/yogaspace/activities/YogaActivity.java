@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
-import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,17 +22,27 @@ import com.vidyalankar.yogaspace.model.YogaInstruction;
 
 public class YogaActivity extends AppCompatActivity {
 
-    TextView yoga_name, instruction1, instruction2, instruction3, instruction4, instruction5, instruction6;
+    TextView yoga_name, instruction1, instruction2, instruction3, instruction4, instruction5, instruction6, start;
     ImageView yogaImage;
 
-    ShimmerFrameLayout shimmerFrameLayout;
     NestedScrollView nestedScrollView;
+
+    VideoView videoView;
+
+    String url= "https://firebasestorage.googleapis.com/v0/b/yoga-space-15f1d.appspot.com/o/Video%2Fone_minute_timer.mp4?alt=media&token=5d24e4bb-fc74-4b35-a3ef-0ec631595692";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yoga);
         yoga_name = findViewById(R.id.yoga_name);
+
+
+        Uri uri= Uri.parse(url);
+        videoView= findViewById(R.id.video_view);
+        videoView.setVideoURI(uri);
+        videoView.setMediaController(null);
+
         instruction1 = findViewById(R.id.instruction1);
         instruction2 = findViewById(R.id.instruction2);
         instruction3 = findViewById(R.id.instruction3);
@@ -40,13 +51,13 @@ public class YogaActivity extends AppCompatActivity {
         instruction6 = findViewById(R.id.instruction6);
         yogaImage = findViewById(R.id.yoga_img);
 
-        shimmerFrameLayout = findViewById(R.id.shimmer);
+        start= findViewById(R.id.start_txt);
+
         nestedScrollView= findViewById(R.id.nested_scrollview);
 
-        shimmerFrameLayout.startShimmer();
 
         Intent intent = getIntent();
-        String y = intent.getStringExtra("yoga");
+        String y = intent.getStringExtra("name");
 
         FirebaseDatabase.getInstance().getReference()
                 .child("Yoga Space")
@@ -56,10 +67,6 @@ public class YogaActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         YogaInstruction yogaInstruction = snapshot.getValue(YogaInstruction.class);
-
-                        shimmerFrameLayout.stopShimmer();
-                        shimmerFrameLayout.setVisibility(View.GONE);
-                        nestedScrollView.setVisibility(View.VISIBLE);
 
                         String yogaName = yogaInstruction.getName();
                         String instruct1 = yogaInstruction.getInstruction1();
@@ -90,5 +97,22 @@ public class YogaActivity extends AppCompatActivity {
 
                     }
                 });
+
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(videoView.isPlaying()){
+                    videoView.pause();
+                    start.setText("Start");
+                }else {
+                    videoView.start();
+                    start.setText("Stop");
+                }
+
+            }
+        });
+
     }
 }

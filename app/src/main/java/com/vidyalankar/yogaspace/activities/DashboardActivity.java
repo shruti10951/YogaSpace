@@ -1,13 +1,17 @@
 package com.vidyalankar.yogaspace.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.github.florent37.diagonallayout.DiagonalLayout;
@@ -25,9 +29,14 @@ public class DashboardActivity extends AppCompatActivity {
 
     DiagonalLayout yoga, breathe, wellness, binaural;
     ImageView account;
+    View profileView;
+    ImageView profile_img;
+    TextView emailTxt, nameTxt, logOutTxt;
 
     FirebaseAuth mAuth;
     FirebaseDatabase firebaseDatabase;
+
+    String initial, name, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,12 @@ public class DashboardActivity extends AppCompatActivity {
         binaural = findViewById(R.id.binaural_card);
         account = findViewById(R.id.profile_pic);
 
+        profileView = findViewById(R.id.profile_view);
+        profile_img= findViewById(R.id.profile_view_pic);
+        emailTxt= findViewById(R.id.profile_view_email);
+        nameTxt= findViewById(R.id.profile_view_name);
+        logOutTxt= findViewById(R.id.log_out_txt);
+
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -49,7 +64,9 @@ public class DashboardActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         UserModel userModel = snapshot.getValue(UserModel.class);
-                        String initial = userModel.getInitial().toUpperCase(Locale.ROOT);
+                        initial = userModel.getInitial().toUpperCase(Locale.ROOT);
+                        name= userModel.getUsername();
+                        email= userModel.getEmail();
 
                         TextDrawable textDrawable = TextDrawable.builder()
                                 .beginConfig()
@@ -72,8 +89,44 @@ public class DashboardActivity extends AppCompatActivity {
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
-                startActivity(intent);
+
+                profileView.setVisibility(View.VISIBLE);
+                profile_img.setVisibility(View.VISIBLE);
+                emailTxt.setVisibility(View.VISIBLE);
+                nameTxt.setVisibility(View.VISIBLE);
+                logOutTxt.setVisibility(View.VISIBLE);
+
+                TextDrawable textDrawable= TextDrawable.builder()
+                        .beginConfig()
+                        .width(60)
+                        .height(60)
+                        .useFont(Typeface.SERIF)
+                        .endConfig()
+                        .buildRound(initial, getResources().getColor(R.color.grey));
+
+                profile_img.setImageDrawable(textDrawable);
+                nameTxt.setText(name);
+                emailTxt.setText(email);
+
+                logOutTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        logout();
+                    }
+                });
+
+                profileView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        profileView.setVisibility(View.GONE);
+                        profile_img.setVisibility(View.GONE);
+                        emailTxt.setVisibility(View.GONE);
+                        nameTxt.setVisibility(View.GONE);
+                        logOutTxt.setVisibility(View.GONE);
+
+                    }
+                });
+
             }
         });
 
@@ -110,4 +163,29 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
     }
+
+    private void logout() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(DashboardActivity.this);
+        builder.setTitle("Log Out?");
+        builder.setMessage("Are you sure you want to log out?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
+                finish();
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
 }
