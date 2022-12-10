@@ -23,7 +23,7 @@
         android:layout_marginTop="5dp"
         android:fontFamily="serif"
         android:paddingBottom="10dp"
-        android:text="Yoga"
+        android:text="Breath"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
@@ -42,25 +42,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-    <ToggleButton
+    <TextView
         android:id="@+id/start"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="450dp"
-        android:layout_marginEnd="100dp"
+        android:background="@drawable/button_bg"
         android:fontFamily="serif"
-        android:paddingStart="10sp"
-        android:paddingEnd="10sp"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="Start"
         android:textColor="@color/black"
-        android:textOff="Start"
-        android:textOn="Stop"
-        android:textSize="25dp"
-        android:textStyle="bold"
+        android:textSize="17dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/relax"

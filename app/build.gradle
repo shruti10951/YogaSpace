@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.vidyalankar.yogaspace"
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -56,4 +56,5 @@ dependencies {
 
     //text inside image
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+
 }

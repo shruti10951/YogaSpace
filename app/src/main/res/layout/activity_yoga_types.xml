@@ -11,10 +11,37 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#0DFFFDFD"
+        android:background="@color/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,132 +57,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
+        android:id="@+id/linear_yoga_types"
         android:layout_width="match_parent"
-        android:layout_height="674dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_height="664dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.5">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/yoga_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:nestedScrollingEnabled="false" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/yoga1"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/adho_mukha_svanasana_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/yoga2"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/balasana"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/yoga1" />
-
-                <ImageView
-                    android:id="@+id/yoga3"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/gomukhasana_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/yoga2" />
-
-                <ImageView
-                    android:id="@+id/yoga4"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/lotus_pose_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/yoga3" />
-
-                <ImageView
-                    android:id="@+id/yoga5"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/trikonasana_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/yoga4" />
-
-                <ImageView
-                    android:id="@+id/yoga6"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/uttanasana_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/yoga5" />
-
-                <ImageView
-                    android:id="@+id/yoga7"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/vasisthasana_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/yoga6" />
-
-                <ImageView
-                    android:id="@+id/yoga8"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/card_bg"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/virabhadrasana_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/yoga7" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

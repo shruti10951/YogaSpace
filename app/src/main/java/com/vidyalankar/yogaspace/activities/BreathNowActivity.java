@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +14,7 @@ public class BreathNowActivity extends AppCompatActivity {
 
     TextView relax, relax1, relax2;
     ImageView imageView;
-    ToggleButton toggleButton;
+    TextView btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +25,12 @@ public class BreathNowActivity extends AppCompatActivity {
         relax1 = findViewById(R.id.relax1);
         relax2 = findViewById(R.id.relax2);
         imageView = findViewById(R.id.imageView);
-        toggleButton = findViewById(R.id.start);
+        btn = findViewById(R.id.start);
 
-        toggleButton.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (toggleButton.isChecked()) {
+                if (btn.getText().equals("Start")) {
                     relax.setVisibility(View.GONE);
                     relax1.setVisibility(View.GONE);
                     relax2.setVisibility(View.GONE);
@@ -43,11 +42,14 @@ public class BreathNowActivity extends AppCompatActivity {
                             .into(imageView);
                     imageView.setVisibility(View.VISIBLE);
 
+                    btn.setText("Stop");
+
                 } else {
                     relax.setVisibility(View.VISIBLE);
                     relax1.setVisibility(View.VISIBLE);
                     relax2.setVisibility(View.VISIBLE);
                     imageView.setVisibility(View.GONE);
+                    btn.setText("Start");
                 }
             }
         });

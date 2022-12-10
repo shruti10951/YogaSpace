@@ -8,6 +8,30 @@
     android:orientation="vertical"
     tools:context=".activities.BinauralActivity">
 
+    <View
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#0D8C8989"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/yoga_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="serif"
+        android:paddingBottom="10dp"
+        android:text="Binaural Beats"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.github.florent37.diagonallayout.DiagonalLayout
         android:id="@+id/diagonalLayout"
         android:layout_width="match_parent"
@@ -19,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <ImageView
             android:layout_width="match_parent"
@@ -29,29 +53,12 @@
 
     </com.github.florent37.diagonallayout.DiagonalLayout>
 
-    <TextView
-        android:id="@+id/binaural_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="serif"
-        android:gravity="right"
-        android:text="Binaural Beats"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diagonalLayout" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="420dp"
         android:layout_height="460dp"
         app:layout_constraintEnd_toEndOf="@+id/diagonalLayout"
         app:layout_constraintStart_toStartOf="@+id/diagonalLayout"
-        app:layout_constraintTop_toBottomOf="@id/binaural_text">
+        app:layout_constraintTop_toBottomOf="@id/diagonalLayout">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,84 +1,76 @@
 package com.vidyalankar.yogaspace.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vidyalankar.yogaspace.R;
+import com.vidyalankar.yogaspace.adapter.YogaAdapter;
+import com.vidyalankar.yogaspace.model.YogaInstruction;
 
-public class YogaTypesActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
 
-    ImageView yoga1, yoga2, yoga3, yoga4, yoga5, yoga6, yoga7, yoga8;
+public class YogaTypesActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    ArrayList<YogaInstruction> list;
+
+    LinearLayout linearLayout;
+    ShimmerFrameLayout shimmerFrameLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yoga_types);
-        yoga1 = findViewById(R.id.yoga1);
-        yoga2 = findViewById(R.id.yoga2);
-        yoga3 = findViewById(R.id.yoga3);
-        yoga4 = findViewById(R.id.yoga4);
-        yoga5 = findViewById(R.id.yoga5);
-        yoga6 = findViewById(R.id.yoga6);
-        yoga7 = findViewById(R.id.yoga7);
-        yoga8 = findViewById(R.id.yoga8);
 
-        yoga1.setOnClickListener(this);
-        yoga2.setOnClickListener(this);
-        yoga3.setOnClickListener(this);
-        yoga4.setOnClickListener(this);
-        yoga5.setOnClickListener(this);
-        yoga6.setOnClickListener(this);
-        yoga7.setOnClickListener(this);
-        yoga8.setOnClickListener(this);
+        recyclerView = findViewById(R.id.yoga_recycler_view);
+        list = new ArrayList<>();
 
-    }
+        linearLayout = findViewById(R.id.linear_yoga_types);
+        shimmerFrameLayout = findViewById(R.id.shimmer);
 
-    @Override
-    public void onClick(View view) {
-        String type = "";
-        switch (view.getId()) {
-            case R.id.yoga1:
-                type = "Adho Mukha Svanasana";
-                changeScreen(type);
-                break;
-            case R.id.yoga2:
-                type = "Balasana";
-                changeScreen(type);
-                break;
-            case R.id.yoga3:
-                type = "Gomukhasana";
-                changeScreen(type);
-                break;
-            case R.id.yoga4:
-                type = "Lotus pose";
-                changeScreen(type);
-                break;
-            case R.id.yoga5:
-                type = "Trikonasana";
-                changeScreen(type);
-                break;
-            case R.id.yoga6:
-                type = "Uttanasana";
-                changeScreen(type);
-                break;
-            case R.id.yoga7:
-                type = "Vasisthasana";
-                changeScreen(type);
-                break;
-            case R.id.yoga8:
-                type = "Virabhadrasana";
-                changeScreen(type);
-                break;
-        }
-    }
+        shimmerFrameLayout.startShimmer();
 
-    private void changeScreen(String type) {
-        Intent intent = new Intent(YogaTypesActivity.this, YogaActivity.class);
-        intent.putExtra("yoga", type);
-        startActivity(intent);
+        YogaAdapter yogaAdapter = new YogaAdapter(this, list);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setAdapter(yogaAdapter);
+
+        FirebaseDatabase.getInstance()
+                .getReference()
+                .child("Yoga Space")
+                .child("Yoga")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        linearLayout.setVisibility(View.VISIBLE);
+                        list.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            YogaInstruction yogaInstruction = dataSnapshot.getValue(YogaInstruction.class);
+                            list.add(yogaInstruction);
+                        }
+                        yogaAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 }
