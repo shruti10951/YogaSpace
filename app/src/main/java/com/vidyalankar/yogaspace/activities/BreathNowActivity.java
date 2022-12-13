@@ -37,7 +37,7 @@ public class BreathNowActivity extends AppCompatActivity {
 
                     Glide.with(BreathNowActivity.this)
                             .asGif()
-                            .load("https://firebasestorage.googleapis.com/v0/b/yoga-space-15f1d.appspot.com/o/gif%2Fbreathing.gif?alt=media&token=27f79bf3-e807-4dbc-8977-41b0f083e725")
+                            .load(R.drawable.breathing_gif)
                             .centerCrop()
                             .into(imageView);
                     imageView.setVisibility(View.VISIBLE);
