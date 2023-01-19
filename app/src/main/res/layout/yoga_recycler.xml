@@ -6,7 +6,7 @@
     android:layout_marginStart="3dp"
     android:layout_marginEnd="3dp"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/recycler_bg">
+    android:background="@drawable/button_bg">
 
     <TextView
         android:id="@+id/yoga_name"

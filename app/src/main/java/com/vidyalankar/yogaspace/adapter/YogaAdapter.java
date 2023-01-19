@@ -49,6 +49,7 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.ViewHolder> {
 
         Glide.with(context)
                 .load(yogaInstruction.getImage())
+                .placeholder(R.drawable.yoga_diagonal)
                 .centerCrop()
                 .into(holder.img);
 
