@@ -10,4 +10,5 @@
     <color name="grey">#4A4646</color>
     <color name="shimmer">#A3A3A3</color>
     <color name="toolbar">#0DFFFDFD</color>
+    <color name="transparent">#00000000</color>
 </resources>

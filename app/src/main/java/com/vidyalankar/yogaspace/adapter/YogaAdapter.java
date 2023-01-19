@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,6 +23,7 @@ import com.vidyalankar.yogaspace.activities.LoginActivity;
 import com.vidyalankar.yogaspace.activities.YogaActivity;
 import com.vidyalankar.yogaspace.model.YogaInstruction;
 
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 
 public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.ViewHolder> {

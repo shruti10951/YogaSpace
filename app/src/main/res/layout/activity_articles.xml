@@ -76,7 +76,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="First title"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -88,7 +88,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para1"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -100,7 +100,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para2"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -112,7 +112,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para3"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -125,7 +125,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="Second"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -137,7 +137,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para1"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -149,7 +149,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para2"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -161,7 +161,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para3"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -175,7 +175,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="Third"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -187,7 +187,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para1"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -199,7 +199,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para2"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -211,7 +211,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
-                android:text="para3"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
